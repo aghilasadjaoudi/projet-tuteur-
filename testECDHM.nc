@@ -5,6 +5,9 @@
 #endif
 
 #define MAX_ROUNDS 10
+// 
+
+// la declacartion des interfaces de l'application
 
 module testECDHM{
   uses{
@@ -76,6 +79,7 @@ implementation {
 
   void gen_PrivateKey1(){
     private_key_msg *pPrivateKey;
+// l'intialisation des clés privées  
 
 #ifdef TEST_VECTOR  //TEST_VECTOR
 #ifdef EIGHT_BIT_PROCESSOR
@@ -132,7 +136,8 @@ implementation {
     call NN.Encode(pPrivateKey->d, KEYDIGITS*NN_DIGIT_LEN, PrivateKey1, KEYDIGITS);
     call PriKeyMsg.send(1, &report, sizeof(private_key_msg));
   }
-
+  
+// la methode qui calcule la clé public 
   void gen_PublicKey1(){
     uint32_t time_a, time_b;
     public_key_msg *pPublicKey;
@@ -153,7 +158,7 @@ implementation {
     call NN.Encode(pPublicKey->y, KEYDIGITS*NN_DIGIT_LEN, PublicKey1.y, KEYDIGITS);
     call PubKeyMsg.send(1, &report, sizeof(public_key_msg));
   }
-
+// la methode qui calcule la clé privé 
   void gen_PrivateKey2(){
     private_key_msg *pPrivateKey;
     
