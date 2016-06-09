@@ -27,7 +27,7 @@ module testECDHM{
   }
 }
 
-implementation {
+implementation {//implementation de l'interface
   message_t report;
   Point PublicKey1, PublicKey2;
   NN_DIGIT PrivateKey1[NUMWORDS], PrivateKey2[NUMWORDS];
